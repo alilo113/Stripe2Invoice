@@ -1,1 +1,3 @@
-INTERNAL_SECRET = "super-secret-value-change-this"
+import os
+
+INTERNAL_SECRET = os.getenv("INTERNAL_SECRET")

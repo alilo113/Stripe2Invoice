@@ -11,10 +11,6 @@ invoice_router = APIRouter()
 
 @invoice_router.post("/stripe-webhook")
 async def stripe_webhook(request: Request):
-
-    if request.headers.get("X-Internal-Secret") != INTERNAL_SECRET:
-        raise HTTPException(status_code=403, detail="Forbidden")
-
     payload = await request.json()
 
     # --- Map Stripe payload ---
